@@ -30,13 +30,13 @@ dbt CloudのジョブやプロジェクトをClaude経由で管理・実行す�
 
 **パラメータ:**
 - `query`: 検索クエリ（ジョブ名や説明）
-- `project_id`: プロジェクトID（デフォルト: snowflakeプロジェクト）
+- `project_id`: プロジェクトID
 
 ### 2. `get_recent_runs`
 最近のジョブ実行履歴を取得します。
 
 **パラメータ:**
-- `project_id`: プロジェクトID（デフォルト: snowflakeプロジェクト）
+- `project_id`: プロジェクトID
 - `limit`: 取得件数（1-50、デフォルト: 10）
 
 ### 3. `list_projects`
@@ -60,8 +60,8 @@ dbtジョブを一覧表示します。
 
 1. このリポジトリをクローン:
 ```bash
-git clone https://github.com/yourusername/dbt-guard-mcp.git
-cd dbt-guard-mcp
+git clone https://github.com/yourusername/dbt-insight-mcp-server.git
+cd dbt-insight-mcp-server
 ```
 
 2. 環境変数を設定:
@@ -99,9 +99,9 @@ Claude Desktop設定ファイルに以下を追加してください:
 ```json
 {
   "mcpServers": {
-    "dbt-guard": {
-      "command": "/path/to/dbt-guard-mcp/venv/bin/python",
-      "args": ["/path/to/dbt-guard-mcp/server.py"]
+    "dbt-insight": {
+      "command": "/path/to/dbt-insight-mcp-server/venv/bin/python",
+      "args": ["/path/to/dbt-insight-mcp-server/server.py"]
     }
   }
 }
@@ -162,7 +162,7 @@ DBT_API_TOKEN=dbtc_your-token
 ### ジョブ実行（危険操作）
 ```
 # 確認が必要な操作
-"sample_jobを実行して（ジョブID: 351878080626750）"
+"sample_jobを実行して（ジョブID: 123456）"
 → 最初は確認なしでブロックされます
 
 # 確認付きで実行
