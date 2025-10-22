@@ -1,4 +1,4 @@
-# dbt Guard MCP
+# dbt-insight-mcp-server
 
 dbt CloudのジョブやプロジェクトをClaude経由で管理・実行するためのModel Context Protocol (MCP) サーバーです。ジョブの検索、実行履歴確認、ジョブのトリガーなどが可能です。
 
