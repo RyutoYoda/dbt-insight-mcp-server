@@ -119,7 +119,7 @@ Claude Desktop設定ファイルに以下を追加してください:
 
 ### 日本インスタンス
 ```env
-DBT_BASE_URL=https://ks156.jp1.dbt.com
+DBT_BASE_URL=https://your-instance.jp1.dbt.com
 DBT_ACCOUNT_ID=your-account-id
 DBT_API_TOKEN=dbtc_your-token
 ```
