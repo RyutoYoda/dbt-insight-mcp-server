@@ -140,8 +140,8 @@ async def list_tools() -> List[Tool]:
                     },
                     "project_id": {
                         "type": "integer", 
-                        "description": "Project ID to search in (use 351878080626727 for snowflake)",
-                        "default": 351878080626727
+                        "description": "Project ID to search in",
+                        "default": None
                     }
                 },
                 "required": ["query"]
@@ -155,8 +155,8 @@ async def list_tools() -> List[Tool]:
                 "properties": {
                     "project_id": {
                         "type": "integer",
-                        "description": "Project ID (default: snowflake project)",
-                        "default": 351878080626727
+                        "description": "Project ID",
+                        "default": None
                     },
                     "limit": {
                         "type": "integer",
@@ -268,7 +268,7 @@ async def call_tool(name: str, arguments: Dict[str, Any]) -> List[TextContent]:
 async def search_in_project(arguments: Dict[str, Any]) -> List[TextContent]:
     """Search for jobs and artifacts in a project"""
     query = arguments["query"]
-    project_id = arguments.get("project_id", 351878080626727)  # Default to snowflake
+    project_id = arguments.get("project_id")
     
     results = await dbt_client.search_in_project(query, project_id)
     
@@ -304,7 +304,7 @@ async def search_in_project(arguments: Dict[str, Any]) -> List[TextContent]:
 
 async def get_recent_runs(arguments: Dict[str, Any]) -> List[TextContent]:
     """Get recent runs for a project"""
-    project_id = arguments.get("project_id", 351878080626727)  # Default to snowflake
+    project_id = arguments.get("project_id")
     limit = arguments.get("limit", 10)
     
     runs = await dbt_client.get_runs(project_id=project_id, limit=limit)
